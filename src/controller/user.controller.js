@@ -1,4 +1,5 @@
 const jwt = require('jsonwebtoken')
+const svgCaptcha = require('svg-captcha');
 const {
     getUserInfo
 } = require('../service/user.service')
@@ -36,6 +37,13 @@ class UserController {
             msg: "获取用户信息成功",
             data: info
         }
+    }
+    // 验证码
+    async loadCaptcha(ctx, next) {
+        const captcha = svgCaptcha.create();
+	    ctx.captcha = captcha.text;
+        ctx.type = 'svg'
+        ctx.body = captcha.data;
     }
 }
 
