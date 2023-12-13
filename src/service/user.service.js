@@ -2,6 +2,16 @@ const User = require('../model/user.model.js')
 
 
 class UserService {
+
+    async create(username, password, account) {
+        const res = await User.create({
+            username,
+            password,
+            account
+        })
+        return res.dataValues
+    }
+
     async getUserInfo({ id, account, password }) {
         const whereOpt = {}
 

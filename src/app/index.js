@@ -5,11 +5,15 @@ const { koaBody } = require('koa-body');
 const cors = require('koa2-cors');
 const router = require('../router');
 const parameter = require('koa-parameter');
+const session = require('koa-session');
 
 const errHandler = require('./errorHandler')
 
 const app = new Koa()
 app.use(cors());
+app.keys = ['ethan-key'];
+
+app.use(session(app));
 
 app.use(koaBody({
     multipart: true,

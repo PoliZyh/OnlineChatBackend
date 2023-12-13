@@ -22,5 +22,26 @@ module.exports = {
         code: '10102',
         msg: '用户登录失败',
         data: ''
+    },
+    userRegisterError: {
+        code: '10103',
+        msg: '密码与重复密码不一致',
+        data: ''
+    },
+    captchaError: {
+        code: '10104',
+        msg: '验证码错误',
+        data: ''
+    },
+    userNotExited: {
+        code: '10105',
+        msg: '用户不存在',
+        data: ''
+    },
+    userInvalidPassword: {
+        code: '10106',
+        msg: '密码错误',
+        data: ''
     }
+
 }
