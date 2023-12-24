@@ -42,6 +42,12 @@ module.exports = {
         code: '10106',
         msg: '密码错误',
         data: ''
+    },
+    // 朋友模块
+    friendFormateError: {
+        code: '10201',
+        msg: '朋友模块参数格式错误',
+        data: ''
     }
 
 }

@@ -38,6 +38,14 @@ class FriendService {
         return groups ? groups : null
     }
 
+    async addFriendGroup(id, groupName) {
+        const res = await FriendGroup.create({
+            userId: id,
+            groupName
+        })
+        return res.dataValues ? true : false
+    }
+
 }
 
 
