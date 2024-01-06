@@ -46,6 +46,24 @@ class FriendService {
         return res.dataValues ? true : false
     }
 
+    async deleteFriendGroup(id, groupId) {
+        // 判断当前朋友分组下是否有好友
+        const friends = await Friend.findAll({
+            where: {
+                groupId: groupId * 1
+            }
+        })
+        if (friends.length || friends.length > 0) return null
+        // 当前朋友分组下没有好友则可以正常删除
+        const destroyRes = await FriendGroup.destroy({
+            where: {
+                id: groupId * 1,
+                userId: id * 1
+            }
+        })
+        return destroyRes > 0 ? true : false
+    }
+
 }
 
 

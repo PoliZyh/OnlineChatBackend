@@ -1,12 +1,14 @@
 const {
     findAllById,
-    addFriendGroup
+    addFriendGroup,
+    deleteFriendGroup
 } = require('../service/friend.service')
 
 
 
 class FriendController {
 
+    // 通过Id获取好友列表
     async findAllFriendsById(ctx, next) {
         const id = ctx.request.params.id;
         const list = await findAllById(id)
@@ -18,6 +20,7 @@ class FriendController {
         }
     }
 
+    // 添加好友分组
     async addFriendGroup(ctx, next) {
         const id = ctx.request.params.id;
         const groupName = ctx.request.body.groupName;
@@ -29,6 +32,19 @@ class FriendController {
             data: hasAdded
         }
 
+    }
+
+    // 删除好友分组
+    async delFriendGroup(ctx, next) {
+        const id = ctx.request.params.id;
+        const groupId = ctx.request.params.groupId;
+        const delRes = await deleteFriendGroup(id, groupId)
+
+        ctx.body = {
+            code: delRes ? 200 : 204,
+            msg: delRes ? '删除好友分组成功' : '好友分组不为空',
+            data: delRes
+        }
     }
 
 }
