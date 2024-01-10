@@ -43,10 +43,18 @@ module.exports = {
         msg: '密码错误',
         data: ''
     },
+
     // 朋友模块
     friendFormateError: {
         code: '10201',
         msg: '朋友模块参数格式错误',
+        data: ''
+    },
+
+    // 搜索模块
+    searchFormateError: {
+        code: '10301',
+        msg: '搜索模块参数格式错误',
         data: ''
     }
 
